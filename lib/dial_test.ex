@@ -30,7 +30,7 @@ defmodule DialTest do
   # uncomment below to see for yourself
 
   # def dial_test(mod_or_struct, event, runtime) do
-  #   compile = %{foo: :bar}
+  #   compile = strip_caller(__ENV__)
   #   case mod_or_struct do
   #     %DialTest{mod: mod} -> mod.hello(event, compile, runtime)
   #     mod -> mod.hello(event, compile, runtime)
