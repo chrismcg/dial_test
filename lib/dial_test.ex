@@ -25,4 +25,15 @@ defmodule DialTest do
   def foo do
     dial_test %DialTest{mod: DialTest}, :testing, %{foo: :bar}
   end
+
+  # No crash (or warning) if macros aren't involved
+  # uncomment below to see for yourself
+
+  # def dial_test(mod_or_struct, event, runtime) do
+  #   compile = %{foo: :bar}
+  #   case mod_or_struct do
+  #     %DialTest{mod: mod} -> mod.hello(event, compile, runtime)
+  #     mod -> mod.hello(event, compile, runtime)
+  #   end
+  # end
 end
