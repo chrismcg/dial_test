@@ -5,8 +5,8 @@ defmodule DialTest do
     compile = strip_caller(__CALLER__) |> Macro.escape()
     quote do
       case unquote(mod_or_struct) do
-        %DialTest{mod: mod} -> mod.hello(unquote(event), unquote(compile), unquote(runtime))
-        mod -> mod.hello(unquote(event), unquote(compile), unquote(runtime))
+        %DialTest{mod: mod} -> mod.hello(unquote(event), unquote(compile), unquote(runtime)) # doesn't crash if list is 2 args delete either compile
+        mod -> mod.hello(unquote(event), unquote(compile), unquote(runtime))                 # or runtime and it won't crash (!?!?)
       end
     end
   end
